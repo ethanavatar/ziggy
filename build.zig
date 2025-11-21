@@ -329,7 +329,7 @@ pub fn setupTests(
             run_cli.addFileInput(b.path(base_path).path(b, entry.name));
             run_cli.expectExitCode(1);
 
-            const out = run_cli.captureStdErr();
+            const out = run_cli.captureStdErr(.{});
             const snap_name = b.fmt("{s}_snap.txt", .{
                 std.fs.path.stem(entry.name),
             });
@@ -383,7 +383,7 @@ pub fn setupTests(
             run_cli.addFileArg(b.path(b.pathJoin(&.{ base_path, entry.name })));
             run_cli.expectExitCode(1);
 
-            const out = run_cli.captureStdErr();
+            const out = run_cli.captureStdErr(.{});
             const snap_name = b.fmt("{s}_snap.txt", .{
                 std.fs.path.stem(entry.name),
             });
